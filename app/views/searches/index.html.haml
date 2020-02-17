@@ -1,0 +1,30 @@
+.search-box
+  = search_form_for @search, url: searches_path do |f|
+    .search-box
+      %form.form
+      .keyword-search
+        .input-box
+          = f.text_field :text_or_name_cont_all, placeholder: 'キーワードを入力', class: 'header-search-text-area', maxlength: 20
+          = f.submit ("検索") , class: 'headrer-search-btn'
+          %span
+    - if @search_boards      
+      .search-result
+        .search-result-container
+          .search-result-container-box
+            %p4 検索結果
+            - if @search_boards.length >= 1  
+              .search-result-heading-box
+                = params[:q][:text_or_name_cont_all]
+                の検索結果　
+              - @search_boards.each do |board|      
+                .board-post-box.main-container 
+                  = link_to board_path(board) do
+                    .board-post.main-container-box
+                      .board-post__name
+                        名前：
+                        = board.name
+                      .board-post__text  
+                        = board.text
+              = paginate(@search_boards)        
+            - else            
+           

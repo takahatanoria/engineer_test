@@ -20,23 +20,13 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @comment = Comment.new
     @comment_all = Comment.where(board_id: @board.id)
-    # if @article.present? 
-    #   @user_article = Article.where(user_id: @article.user.id).where.not(id: @article.id).limit(16).order("created_at DESC")
-    #   @comment_article = Comment.where(article_id: @article.id).limit(5).order("created_at DESC")
-    #   @comment = Comment.new
-    #   @comment_all = Comment.where(article_id: @article.id).order("created_at DESC")
-    # else 
-    #   respond_to do |format|
-    #     format.html { redirect_to root_path }
-    #     format.json
-    #   end  
-    # end  
   end
+
 
   private
 
   def board_params
-    params.require(:board).permit(:name, :text).merge(user_id: current_user.id)
+    params.require(:board).permit(:name, :text,:main_category,:sub_category).merge(user_id: current_user.id)
   end
 
 end

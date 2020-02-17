@@ -8,6 +8,15 @@
       .input-box-text  
         = f.label :text, class: 'input-box-text', for: "input-box-text-area" do         
           = f.text_area :text, class: "input-box-text-area", placeholder:"テキスト",id: "input-box-text-area", value: '', rows: 5
+      .input-box-select-container
+        .input-box-select-container-box
+          メインカテゴリ 
+        = f.collection_select(:main_category, @categories, :id, :name,{prompt: "--------"}, class: "input-box-select-area") 
+        .input-box-select-container-box
+          サブカテゴリ 
+        = f.collection_select(:sub_category, @categories, :id, :name,{prompt: "--------"}, class: "input-box-select-area") 
+        
+      
       .input-box-caution
         投稿するにはユーザー登録・ログインする必要があります。
       .submit-box

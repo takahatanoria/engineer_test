@@ -5,11 +5,14 @@ class CommentsController < ApplicationController
   end
 
   def create 
-    @board = Board.find(params[:board_id])
-    @comment = @board.comments.build(comment_params)
-    @comment.save
-    redirect_to board_path(@board) 
-
+    if user_signed_in?
+      @board = Board.find(params[:board_id])
+      @comment = @board.comments.build(comment_params)
+      @comment.save
+      redirect_to board_path(@board) 
+    else  
+      redirect_to root_path
+    end
   end
 
   private
