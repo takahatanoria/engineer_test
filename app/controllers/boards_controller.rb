@@ -26,7 +26,7 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name, :text).merge(user_id: current_user.id)
+    params.require(:board).permit(:name, :text,:main_category,:sub_category).merge(user_id: current_user.id)
   end
 
 end

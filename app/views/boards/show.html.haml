@@ -14,5 +14,13 @@
         = @board.name
       .board-post__text  
         = @board.text
+      - if  @board.main_category.present?
+        .board-post__main_category 
+          メインカテゴリ：
+          = Category.find(@board.main_category).name 
+      - if  @board.sub_category.present?
+        .board-post__main_category 
+          サブカテゴリ：
+          = Category.find(@board.sub_category).name   
     = render 'comments/comment'
 
