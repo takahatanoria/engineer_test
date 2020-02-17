@@ -1,0 +1,16 @@
+.board-post-new
+  = form_with model: @board, local: true, multiple: true do |f|
+    .board-post-new-logo
+    .board-post-new-container
+      .input-box-name
+        = f.label :name, class: 'input-box-name', for: "input-box-name-area"  do
+          = f.text_field :name, class: "input-box-title-area", placeholder:"名前",id: "input-box-title-area", value: '', rows: 1
+      .input-box-text  
+        = f.label :text, class: 'input-box-text', for: "input-box-text-area" do         
+          = f.text_area :text, class: "input-box-text-area", placeholder:"テキスト",id: "input-box-text-area", value: '', rows: 5
+      .submit-box
+      = f.submit '投稿する', class: 'form__contribute' 
+    .main-box-footer-new
+
+
+
