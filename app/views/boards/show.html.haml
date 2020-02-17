@@ -6,11 +6,11 @@
     = link_to "ログイン", new_user_session_path, :class => 'post'
     = link_to "新規登録", new_user_registration_path, class: 'post'
   .board-post-index__logo
-    新着投稿
-  .board-post-index__container
-    .board-post-index__container__box
-      - @boards.each do |board|
-        = render partial: "board", locals: { board: board }
-    = paginate(@boards)
-
-
+    投稿詳細
+  .board-post-show__container.main-container 
+    .board-post.main-container-box
+      .board-post__name
+        名前：
+        = @board.name
+      .board-post__text  
+        = @board.text

@@ -1,3 +1,35 @@
 // Place all the styles related to the boards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.board-post-index__container {
+  widows: 70%;
+  max-width:1200px;
+  background-color: #e3f2fd;
+  margin :30px;
+  padding: 30px;
+  .board-post{
+    widows: 80%;
+    height: 200px;
+    margin :30px;
+    padding: 30px;
+    background-color: #90caf9;
+   
+  }
+}
+
+.main-container {
+  widows: 70%;
+  max-width:1200px;
+  background-color: #e3f2fd;
+  margin :30px;
+  padding: 30px;
+  .main-container-box{
+    widows: 80%;
+    height: 200px;
+    margin :30px;
+    padding: 30px;
+    background-color: #90caf9;
+  }
+}
