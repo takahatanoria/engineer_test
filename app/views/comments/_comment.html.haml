@@ -1,0 +1,35 @@
+- if @comment
+  = form_for [@board, @comment], local: true do |f|
+    .board-post-comment-list.main-container 
+      - @comment_all.each do |comment|
+        .board-post-comment-list__container.main-container-box-comment
+          .board-post-comment-list__container__user
+            .article-comment-user-nickname
+              名前：
+              = comment.name
+          .board-post-comment-list__container__box
+            .board-comment-text
+              = comment.text
+      .board-post-comment
+        .board-post-comment__box
+          .board-post-comment__box__name
+            = f.text_area :name, placeholder: '名前を入力', style: 'width: 30%;height: 30px;'
+          .board-post-comment__box__text
+            = f.text_area :text, placeholder: '入力', style: 'width: 100%;height: 100px;'
+      .input-box-form
+        = f.submit 'レスする', class: 'form__contribute'
+
+  -# .article-show-comment-display
+  -#   .article-post-comment-list-display
+  -#     - @comment_article.each do |comment|
+  -#       .article-post-comment-list-display__container.displayflex
+  -#         .article-post-comment-list-display__container__user.displayflex
+  -#           .article-comment-user-avater
+  -#           .article-comment-user-nickname
+  -#             = comment.user.name
+  -#         .article-post-comment-list-display__container__box
+  -#           .article-comment-text
+  -#             = comment.content 
+  -#         .article-post-comment-list-display__container__replay
+  -#           .article-replay-user-avater
+  -#           .article-replay-user-nickname
