@@ -1,0 +1,10 @@
+.board-post-box
+  = link_to board_path(board) do
+    .board-post
+      .board-post__name
+        名前：
+        = board.name
+      .board-post__text  
+        = board.text
+
+

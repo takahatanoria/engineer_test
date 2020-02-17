@@ -1,6 +1,7 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.all.order("id DESC")
+    @boards = Board.includes(:user).page(params[:page]).per(5).order("created_at DESC")
+
   end
 
   def new
@@ -8,8 +9,27 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.create(board_params)
-    redirect_to action: :index 
+    if user_signed_in?
+      @board = Board.create(board_params)
+      redirect_to action: :index 
+    else  
+      redirect_to root_path
+    end
+  end  
+
+  def show
+    @board = Board.find(params[:id])
+    # if @article.present? 
+    #   @user_article = Article.where(user_id: @article.user.id).where.not(id: @article.id).limit(16).order("created_at DESC")
+    #   @comment_article = Comment.where(article_id: @article.id).limit(5).order("created_at DESC")
+    #   @comment = Comment.new
+    #   @comment_all = Comment.where(article_id: @article.id).order("created_at DESC")
+    # else 
+    #   respond_to do |format|
+    #     format.html { redirect_to root_path }
+    #     format.json
+    #   end  
+    # end  
   end
 
   private
