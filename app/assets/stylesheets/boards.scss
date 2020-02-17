@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+a {
+  color: #1565c0;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1565c0;
+  text-decoration: none;
+}
 
 .board-post-index__container {
   widows: 70%;
@@ -15,10 +24,8 @@
     margin :30px;
     padding: 30px;
     background-color: #90caf9;
-   
   }
 }
-
 .main-container {
   widows: 70%;
   max-width:1200px;
@@ -37,7 +44,12 @@
     margin :30px;
     padding: 30px;
     background-color: #90caf9;
-
   }
-
+}
+dl.searchbox{
+  width: 350px;
+  position:relative;
+  background-color:#fff;
+  border:1px solid #aaa;
+  border-radius:6px;
 }

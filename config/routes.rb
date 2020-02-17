@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :boards do
     resources :comments, only: [:create]
   end
+  resources :searches, only: [:index]
 
 end

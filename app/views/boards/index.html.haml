@@ -7,6 +7,8 @@
     = link_to "新規登録", new_user_registration_path, class: 'post'
   .board-post-index__logo
     新着投稿
+  .board-post-index__search  
+    = link_to "記事を検索する", searches_path, class: 'get'
   .board-post-index__container
     .board-post-index__container__box
       - @boards.each do |board|
