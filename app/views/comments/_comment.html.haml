@@ -17,19 +17,5 @@
           .board-post-comment__box__text
             = f.text_area :text, placeholder: '入力', style: 'width: 100%;height: 100px;'
       .input-box-form
+        レスするにはユーザー登録・ログインする必要があります。
         = f.submit 'レスする', class: 'form__contribute'
-
-  -# .article-show-comment-display
-  -#   .article-post-comment-list-display
-  -#     - @comment_article.each do |comment|
-  -#       .article-post-comment-list-display__container.displayflex
-  -#         .article-post-comment-list-display__container__user.displayflex
-  -#           .article-comment-user-avater
-  -#           .article-comment-user-nickname
-  -#             = comment.user.name
-  -#         .article-post-comment-list-display__container__box
-  -#           .article-comment-text
-  -#             = comment.content 
-  -#         .article-post-comment-list-display__container__replay
-  -#           .article-replay-user-avater
-  -#           .article-replay-user-nickname

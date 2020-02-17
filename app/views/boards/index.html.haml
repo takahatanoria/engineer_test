@@ -1,12 +1,17 @@
 .board-post-index
   - if user_signed_in?
-    ようこそ●●さん
-    = link_to "ログアウト", destroy_user_session_path, method: :delete
+    .board-post-index-welcome.displayflex
+      .board-post-index-text
+        ようこそ
+      .board-post-index-text
+        = current_user.nickname
+      .board-post-index-text  
+        さん
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
   - else
     = link_to "ログイン", new_user_session_path, :class => 'post'
     = link_to "新規登録", new_user_registration_path, class: 'post'
   .board-post-index__logo
-    新着投稿
   .board-post-index__search  
     = link_to "記事を検索する", searches_path, class: 'get'
   .board-post-index__container
