@@ -1,7 +1,6 @@
 class BoardsController < ApplicationController
   def index
     @boards = Board.includes(:user).page(params[:page]).per(5).order("created_at DESC")
-
   end
 
   def new
@@ -19,6 +18,8 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @comment = Comment.new
+    @comment_all = Comment.where(board_id: @board.id)
     # if @article.present? 
     #   @user_article = Article.where(user_id: @article.user.id).where.not(id: @article.id).limit(16).order("created_at DESC")
     #   @comment_article = Comment.where(article_id: @article.id).limit(5).order("created_at DESC")
